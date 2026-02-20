@@ -13,6 +13,7 @@ const Home = lazy(() => import("./pages/Home"));
 const Cart = lazy(() => import("./pages/Cart"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Products = lazy(() => import("./pages/Products"));
+const ProductView = lazy(() => import("./pages/ProductView"));
 const Login = lazy(() => import("./pages/Login"));
 const Signup = lazy(() => import("./pages/Signup"));
 const Orders = lazy(() => import("./pages/Orders"));
@@ -66,6 +67,11 @@ const App = () => {
           <Route path="/products" element={
             <Suspense fallback={<Loader message="Loading products page" />}>
               <Products />
+            </Suspense>
+          } />
+          <Route path="/products/:id" element={
+            <Suspense fallback={<Loader message="Loading products page" />}>
+              <ProductView />
             </Suspense>
           } />
           <Route path="/orders" element={

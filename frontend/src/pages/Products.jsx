@@ -5,7 +5,7 @@ import { useCartStore } from "../store/useCartStore";
 import { useSearchParams } from "react-router-dom";
 import debounce from "lodash.debounce";
 
-const ProductsPage = () => {
+const Products = () => {
 
     const [searchParams, setSearchParams] = useSearchParams();
     const search = searchParams.get("search") || "";
@@ -130,4 +130,4 @@ const ProductsPage = () => {
     )
 }
 
-export default ProductsPage
+export default Products

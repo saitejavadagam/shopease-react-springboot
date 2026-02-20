@@ -20,7 +20,7 @@ export const useCartStore = create((set, get) => ({
     }
   },
 
-  addItem: async (productId) => {
+  addItem: async (productId,quantity=1) => {
 
     if (!productId) return;
     set({ loading: true, error: null });
@@ -31,7 +31,7 @@ export const useCartStore = create((set, get) => ({
       if (existing) {
         const data = await apiFetch(
           `api/carts/me/items/${existing.itemId}`,
-          { method: "PATCH", body: JSON.stringify({ quantity: existing.quantity + 1 }) }
+          { method: "PATCH", body: JSON.stringify({ quantity: existing.quantity + quantity }) }
         );
         set({ cart: data });
       } else {
