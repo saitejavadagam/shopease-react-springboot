@@ -13,7 +13,6 @@ const ProductCard = ({ product, quantity = 0 }) => {
     return (
         <div className="flex gap-6 p-4 bg-white border border-slate-300 rounded-lg hover:shadow-lg transition-shadow duration-200 my-3">
             
-            {/* IMAGE */}
             <Link
                 to={`/products/${product.id}`}
                 target="_blank"
