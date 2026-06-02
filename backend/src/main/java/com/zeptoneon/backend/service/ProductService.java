@@ -44,12 +44,20 @@ public class ProductService {
                     sanitizeString(category), search.trim(), pageable);
         }
 
+        else if(hasSubcategory && hasSearch) {
+            productPage = productRepository.findBySubcategoryIgnoreCaseAndTitleContainingIgnoreCase(sanitizeString(subcategory),search.trim(),pageable);
+        }
+
         else if (hasSearch) {
             productPage = productRepository.findByTitleContainingIgnoreCase(search.trim(), pageable);
         }
 
         else if (hasCategory) {
             productPage = productRepository.findByCategoryIgnoreCase(sanitizeString(category), pageable);
+        }
+
+        else if (hasSubcategory){
+            productPage = productRepository.findBySubcategoryIgnoreCase(sanitizeString(subcategory),pageable);
         }
 
         else {
@@ -84,6 +92,8 @@ public class ProductService {
         return ProductResponse.builder()
                 .id(product.getId())
                 .title(product.getTitle())
+                .category(product.getCategory())
+                .subcategory(product.getSubcategory())
                 .price(product.getPrice())
                 .mrp(product.getMrp())
                 .rating(product.getRating())

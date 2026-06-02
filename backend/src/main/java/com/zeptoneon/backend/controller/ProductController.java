@@ -19,11 +19,11 @@ public class ProductController {
     public ResponseEntity<ProductPageResponse> getProducts(
             @RequestParam(required = false) String search,
             @RequestParam(required = false) String category,
-            @RequestParam(required = false) String subCategory,
+            @RequestParam(required = false) String subcategory,
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "20") int size
     ) {
-        return ResponseEntity.ok(productService.getProducts(search,category,subCategory, page, size));
+        return ResponseEntity.ok(productService.getProducts(search,category,subcategory, page, size));
     }
 
     @GetMapping("/{id}")

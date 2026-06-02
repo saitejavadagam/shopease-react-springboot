@@ -90,8 +90,10 @@ const RecommendedItems = () => {
     navigate(`/products?category=${encodeURIComponent(categoryName.toLowerCase())}`);
   };
 
-  const handleItemClick = (itemName) => {
-    navigate(`/products?search=${encodeURIComponent(itemName)}`);
+  const handleItemClick = (categoryName, itemName) => {
+    const catParam = encodeURIComponent(categoryName.toLowerCase());
+    const subCatParam = encodeURIComponent(itemName.toLowerCase());
+    navigate(`/products?category=${catParam}&subcategory=${subCatParam}`);
   };
 
   return (
@@ -111,7 +113,7 @@ const RecommendedItems = () => {
                   <div
                     className="cursor-pointer group"
                     key={index}
-                    onClick={() => handleItemClick(item.name)}
+                    onClick={() => handleItemClick(card.title, item.name)}
                   >
                     <div className="overflow-hidden bg-gray-50 rounded p-1">
                       <img

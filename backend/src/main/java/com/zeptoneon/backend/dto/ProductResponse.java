@@ -9,6 +9,8 @@ public class ProductResponse {
 
     private Long id;
     private String title;
+    private String category;
+    private String subcategory;
     private Double price;
     private Double mrp;
     private Double rating;
